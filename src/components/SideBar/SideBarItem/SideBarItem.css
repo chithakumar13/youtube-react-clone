@@ -1,0 +1,15 @@
+.sidebar_item:hover{
+    background:rgb(230, 230, 230) !important;
+}
+
+.sidebar_item span i.icon{
+    margin-right: 20px;
+}
+
+.highlight_menu span{
+    font-weight: bold;
+}
+
+.highlight_menu i.icon{
+    color: red !important;
+}
