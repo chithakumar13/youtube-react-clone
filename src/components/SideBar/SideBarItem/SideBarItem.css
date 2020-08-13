@@ -1,9 +1,14 @@
 .sidebar_item:hover{
-    background:rgb(230, 230, 230) !important;
+    background:rgb(230, 230, 230) !important; 
+    cursor: pointer;
 }
 
 .sidebar_item span i.icon{
     margin-right: 20px;
+}
+
+.highlight_menu{
+    background: rgb(205, 205, 205) !important;
 }
 
 .highlight_menu span{
