@@ -5,9 +5,10 @@ import './TopNav.css';
 
 export const TopNav = () => {
     const [searchInputState , setSearchState] = useState("");
-
+    
     const onSearchChange = (event : React.ChangeEvent<HTMLInputElement>) => { 
-        setSearchState(() => event.currentTarget.value)
+        let value : string = event.currentTarget.value;
+        setSearchState(() => value)
     }
 
     return <Menu borderless fixed="top" className="top_nav">
@@ -22,7 +23,7 @@ export const TopNav = () => {
                         <Input
                             placeholder="Search"
                             value={searchInputState}
-                            action={{ icon: 'search' }}
+                            action={{ icon: 'search' }} 
                             onChange ={onSearchChange}
                         />
                     </Form.Field>
