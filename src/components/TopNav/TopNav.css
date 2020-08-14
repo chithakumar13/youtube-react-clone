@@ -2,6 +2,10 @@
     color: red;
 }
 
+.top_nav{
+    height: 50px;
+}
+
 .top_nav_icon{
     width: 15rem;
 }
