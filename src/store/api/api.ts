@@ -1,5 +1,7 @@
-export const getVideos = () => {
-    (gapi.client as any).youtube.videos.list({
+import { VideoResponse } from "../types"
+
+export const getVideos = () : Promise<VideoResponse> => {
+    return (gapi.client as any).youtube.videos.list({
         "part": [
             "snippet",
             "statistics",
@@ -9,9 +11,4 @@ export const getVideos = () => {
         "regionCode": "IN",
         "maxResults": 14,
     })
-        .then(function (response: any) {
-            // Handle the results here (response.result has the parsed body).
-            console.log("Response", response);
-
-        })
 }

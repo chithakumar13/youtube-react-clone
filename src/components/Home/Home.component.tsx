@@ -1,5 +1,5 @@
 import React from 'react';
-import { Content } from './Content/Content.component';
+import Content from './Content/Content.component';
 import { SideBar } from '../SideBar/SideBar.component';
 
 export const Home = () => {

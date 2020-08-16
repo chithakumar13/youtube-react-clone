@@ -1,3 +1,6 @@
+import { Video } from "../types";
+
 export interface IVideoState {
-    isYoutubeClientLoaded  : boolean
+    isYoutubeClientLoaded  : boolean;
+    videos : Video[]
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
-import { createStore } from "redux";
+import { createStore , compose, applyMiddleware } from "redux";
+import Thunk from "redux-thunk"
 import { Provider } from "react-redux";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -9,7 +10,7 @@ import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css'
 import { YoutubeReducer } from './store/reducer/youtube-reducer';
 
-const store = createStore(YoutubeReducer);
+const store = createStore(YoutubeReducer,compose(applyMiddleware(Thunk)));
 
 ReactDOM.render(
   <React.StrictMode>

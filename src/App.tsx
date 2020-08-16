@@ -7,8 +7,7 @@ import { connect } from 'react-redux';
 import { IVideoState } from './store/interfaces/IVideoState'; 
 import { YoutubeClientLoaded } from './store/action-creators/action-creator';
 
-interface IApp{
-  isYoutubeClientLoaded : boolean,  
+interface IApp{  
   setYoutubeCliendLoaded() : void
 }
 
@@ -33,12 +32,8 @@ function App(props : IApp) {
   );
 }
 
-const mapStateToProps = (state: IVideoState) => {
-  return { isYoutubeClientLoaded: state.isYoutubeClientLoaded }
-}
-
 const mapDispatchToProps = (dispatch: any) => {
   return { setYoutubeCliendLoaded: () => {  dispatch(YoutubeClientLoaded()) } }
 }
 
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));
+export default withRouter(connect(null,mapDispatchToProps)(App));
