@@ -4,12 +4,19 @@ import {Divider} from 'semantic-ui-react'
 
 import './VideoGrid.css'
 import { VideoGridHeader } from './VideoGridHeader/VideoGridHeader.component';
+import { Video } from '../../../../store/types';
 
-export const VideoGrid = () => {
+interface IVideos {
+    videos : Video[];
+    title : string;
+}
 
-    let previews = Array.apply(null,new Array(15)).map((val,index) =><VideoPreview key={index}/> );
+
+export const VideoGrid = (props : IVideos) => {
+
+    let previews = props.videos.map((video) =><VideoPreview video={video} key={video.id}/> );
     return <>
-    <VideoGridHeader Title = "Test Title"></VideoGridHeader>
+    <VideoGridHeader Title = {props.title}></VideoGridHeader>
     <div className="video_grid">{previews}
     </div>
     <Divider />

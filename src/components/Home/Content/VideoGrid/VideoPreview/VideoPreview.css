@@ -1,6 +1,6 @@
 .video_preview{
     display: grid;
-    grid : 130px auto / 210px;
+    grid : 119px auto / 210px;
     margin-left: 5px;
     margin-bottom: 25px;
 }
@@ -15,7 +15,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    opacity: 0.5;
+    opacity: 0.8;
     border-radius: 2px;
     font-weight: 500;
     margin: 4px;
@@ -42,4 +42,10 @@
 
 .video_view_time{
     margin-bottom: 10px;
+}
+
+.video_info_title{
+    overflow: hidden;
+    max-height: 2.3em;
+    line-height: 1.3em;
 }

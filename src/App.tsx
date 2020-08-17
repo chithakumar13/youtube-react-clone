@@ -2,9 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { Home } from './components/Home/Home.component';
 import { TopNav } from './components/TopNav/TopNav.component';
-import { getVideos } from './store/api/api';
 import { connect } from 'react-redux';
-import { IVideoState } from './store/interfaces/IVideoState'; 
 import { YoutubeClientLoaded } from './store/action-creators/action-creator';
 
 interface IApp{  

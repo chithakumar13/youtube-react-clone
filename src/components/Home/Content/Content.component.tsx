@@ -15,14 +15,9 @@ interface IContent {
 
 const Content = (props: IContent) => {
 
-    const [noOfGrids, setGrids] = useState(2);
-
-    console.log(JSON.stringify(props.videos));
-    
-    const grids = Array.apply(null, new Array(noOfGrids)).map((val, index) => <VideoGrid key={index} />);
+    const grid = <VideoGrid videos={props.videos} title="Recommended" />;
 
     const onCallBack = () => {
-        setGrids((currentState) => currentState + 1);
     }
 
     useEffect(() => {
@@ -34,7 +29,7 @@ const Content = (props: IContent) => {
     return <InfiniteScroll callBack={onCallBack}>
         <div className="video_content">
             <div className="video_content_container">
-                {grids}
+                {grid}
             </div>
         </div>
     </InfiniteScroll>
