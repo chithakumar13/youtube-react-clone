@@ -5,5 +5,8 @@ export interface IAction {
 
 export enum ActionTypes{
     YoutubeClientLoaded,
-    LoadPopularVideos
+    LoadPopularVideos,
+    LoadCategories,
+    LoadVideosByCategories,
+    VideosLoading
 }
