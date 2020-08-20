@@ -8,5 +8,6 @@ export enum ActionTypes{
     LoadPopularVideos,
     LoadCategories,
     LoadVideosByCategories,
-    VideosLoading
+    VideosLoading,
+    SearchVideos
 }

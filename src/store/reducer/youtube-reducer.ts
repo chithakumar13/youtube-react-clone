@@ -6,7 +6,8 @@ let initialState: IVideoState = {
     videos: [],
     categories: [],
     videosByCategories: {},
-    videosLoading: false
+    videosLoading: false,
+    searchResults: []
 }
 
 export const YoutubeReducer = (currentState: IVideoState = initialState, action: IAction) => {
@@ -34,6 +35,11 @@ export const YoutubeReducer = (currentState: IVideoState = initialState, action:
     else if (action.type === ActionTypes.VideosLoading) {
         let state = { ...currentState };
         state.videosLoading = true;
+        return state;
+    }
+    else if (action.type === ActionTypes.SearchVideos) {
+        let state = { ...currentState };
+        state.searchResults = action.payload;
         return state;
     }
     return currentState;

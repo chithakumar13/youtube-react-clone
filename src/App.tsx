@@ -5,6 +5,7 @@ import TopNav from './components/TopNav/TopNav.component';
 import { connect } from 'react-redux';
 import { YoutubeClientLoaded } from './store/action-creators/action-creator';
 import Search from './components/Search/Search.component';
+import { SideBar } from './components/SideBar/SideBar.component';
 
 interface IApp {
   setYoutubeCliendLoaded(): void
@@ -24,6 +25,7 @@ function App(props: IApp) {
   return (
     <div className="App">
       <TopNav />
+      <SideBar />
       <Switch>
         <Route path="/result" component={Search} />        
         <Route path="/" component={Home} />

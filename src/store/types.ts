@@ -6,11 +6,14 @@ export type VideoCategoryResponse = gapi.client.Response<gapi.client.youtube.Vid
 
 export type VideoCategory = gapi.client.youtube.VideoCategory
 
-export type VideoByCategory = { [Id : string] : Video[]}
+export type VideoByCategory = { [Id: string]: Video[] }
 
 export type params = {
-    search_query : string
+    search_query: string
 }
 
+export type SearchResponse = gapi.client.Response<gapi.client.youtube.SearchListResponse>
+
+export type SearchResult = gapi.client.youtube.SearchResult;
 
 

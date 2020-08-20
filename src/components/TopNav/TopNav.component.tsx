@@ -12,7 +12,7 @@ interface ITopNav extends RouteComponentProps<params>{
 }
 
 const TopNav = (props : ITopNav) => {
-    const [searchInputState , setSearchState] = useState(getParamValue(props.location,'search_query'));
+    const [searchInputState , setSearchState] = useState(getParamValue(props.location,'search_query') || '');
     
     const onSearchChange = (event : React.ChangeEvent<HTMLInputElement>) => { 
         let value : string = event.currentTarget.value;
