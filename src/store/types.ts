@@ -8,3 +8,9 @@ export type VideoCategory = gapi.client.youtube.VideoCategory
 
 export type VideoByCategory = { [Id : string] : Video[]}
 
+export type params = {
+    search_query : string
+}
+
+
+
