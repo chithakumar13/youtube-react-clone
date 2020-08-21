@@ -14,7 +14,7 @@ interface IApp {
 function App(props: IApp) {
   useEffect(() => {
     gapi.load('client', () => {
-      gapi.client.setApiKey("AIzaSyDY8Fym_sZKDZlQ3H3qsfp7HcBzAf1HRnw");
+      gapi.client.setApiKey("AIzaSyBdT9NVewzwHrcGzMTpsPmTWtgUwH_5MyM");
       return gapi.client.load("youtube", "v3", () => {
         props.setYoutubeCliendLoaded();
       })

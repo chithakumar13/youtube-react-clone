@@ -30,6 +30,12 @@
     grid-column: 1/2;
 }
 
+.verticalList{
+    padding-left: 5px;
+    grid-column:  2/3;
+    grid-row: 1/2;
+}
+
 .video_basic_info{
     padding-top: 5px;
 }

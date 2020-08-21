@@ -14,6 +14,12 @@ export const VideosLoading = () => {
     }
 }
 
+export const ClearSearchResult = () => {
+    return {
+        type : ActionTypes.ClearSearchResult
+    }
+}
+
 
 export const LoadPopularVideos = () => {
     return (dispatch: any) => {
@@ -69,7 +75,7 @@ export const SearchVideos = (query: string, nextPageToken: string  | null) => {
         searchVideo(query, nextPageToken).then((data: SearchResponse) => {
             dispatch({
                 type: ActionTypes.SearchVideos,
-                payload: data.result.items
+                payload: data.result
             })
         })
     }

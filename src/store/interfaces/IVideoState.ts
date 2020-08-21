@@ -1,4 +1,4 @@
-import { Video, VideoByCategory, VideoCategory, SearchResult } from "../types";
+import { Video, VideoByCategory, VideoCategory, SearchResult, SearchListResponse } from "../types";
 
 export interface IVideoState {
     isYoutubeClientLoaded  : boolean;
@@ -6,5 +6,5 @@ export interface IVideoState {
     videosByCategories : VideoByCategory;
     categories : VideoCategory[];
     videosLoading : boolean;
-    searchResults : SearchResult[];
+    searchResults : SearchListResponse;
 }

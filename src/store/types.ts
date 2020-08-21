@@ -12,6 +12,8 @@ export type params = {
     search_query: string
 }
 
+export type SearchListResponse = gapi.client.youtube.SearchListResponse;
+
 export type SearchResponse = gapi.client.Response<gapi.client.youtube.SearchListResponse>
 
 export type SearchResult = gapi.client.youtube.SearchResult;
