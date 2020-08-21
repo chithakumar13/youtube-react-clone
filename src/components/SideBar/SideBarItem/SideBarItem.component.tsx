@@ -2,23 +2,34 @@ import React from 'react';
 import { Item, Icon, SemanticICONS } from 'semantic-ui-react';
 
 import './SideBarItem.css';
+import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
+import { params } from '../../../store/types';
 
-interface ISideBarItem {
+interface ISideBarItem extends RouteComponentProps<params> {
     icon: SemanticICONS;
     label: string;
-    selected : boolean;
+    itemUri?: string;
 }
 
-export const SideBarItem = (props: ISideBarItem) => {
+const SideBarItem = (props: ISideBarItem) => {
 
-    const highlightClass = props.selected ? 'highlight_menu' : null;
+    const isSelected = () => {
+        const {pathname} = props.location;
+        return pathname === props.itemUri;
+    }
+
+    const highlightClass = isSelected() ? 'highlight_menu' : null;
 
     return (
-        <Item className={['sidebar_item',highlightClass].join(' ')}>
-            <div>
-                <span><Icon size="large" name={props.icon} /></span>
-                <span>{props.label}</span>
-            </div>
-        </Item>
+        <Link to={props.itemUri || '/'}>
+            <Item className={['sidebar_item', highlightClass].join(' ')}>
+                <div>
+                    <span><Icon size="large" name={props.icon} /></span>
+                    <span>{props.label}</span>
+                </div>
+            </Item>
+        </Link>
     )
 }
+
+export default withRouter(SideBarItem)

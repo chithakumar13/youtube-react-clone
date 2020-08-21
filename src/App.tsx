@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { YoutubeClientLoaded } from './store/action-creators/action-creator';
 import Search from './components/Search/Search.component';
 import { SideBar } from './components/SideBar/SideBar.component';
+import Trending from './components/Trending/Trending.component';
 
 interface IApp {
   setYoutubeCliendLoaded(): void
@@ -27,7 +28,8 @@ function App(props: IApp) {
       <TopNav />
       <SideBar />
       <Switch>
-        <Route path="/result" component={Search} />        
+        <Route path="/feed/trending" component={Trending} />
+        <Route path="/result" component={Search} />
         <Route path="/" component={Home} />
       </Switch>
     </div>

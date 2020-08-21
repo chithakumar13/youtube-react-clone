@@ -1,5 +1,5 @@
 import { ActionTypes } from "../interfaces/IAction"
-import { getVideos, getVideoCategories, getVideosByCategory, searchVideo } from "../api/api"
+import { getVideos, getVideoCategories, getVideosByCategory, searchVideo, getTrendingVideos } from "../api/api"
 import { VideoResponse, VideoCategoryResponse, VideoCategory, VideoByCategory, SearchResponse } from "../types"
 
 export const YoutubeClientLoaded = () => {
@@ -16,7 +16,7 @@ export const VideosLoading = () => {
 
 export const ClearSearchResult = () => {
     return {
-        type : ActionTypes.ClearSearchResult
+        type: ActionTypes.ClearSearchResult
     }
 }
 
@@ -70,11 +70,22 @@ export const GetVideosByCategories = (videoCategories: VideoCategory[]) => {
 }
 
 
-export const SearchVideos = (query: string, nextPageToken: string  | null) => {
+export const SearchVideos = (query: string, nextPageToken: string | null) => {
     return (dispatch: any) => {
         searchVideo(query, nextPageToken).then((data: SearchResponse) => {
             dispatch({
                 type: ActionTypes.SearchVideos,
+                payload: data.result
+            })
+        })
+    }
+}
+
+export const GetTrendingVideos = (nextPageToken: string | null) => {
+    return (dispatch: any) => {
+        getTrendingVideos(nextPageToken).then((data: VideoResponse) => {
+            dispatch({
+                type: ActionTypes.GetTrendingVideos,
                 payload: data.result
             })
         })

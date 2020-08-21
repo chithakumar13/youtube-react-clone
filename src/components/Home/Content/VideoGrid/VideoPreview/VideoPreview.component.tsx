@@ -30,7 +30,7 @@ export const VideoPreview = (props: IVideoPreview) => {
             <div className="video_basic_info">
                 <div className="video_channel">{props.video.snippet?.channelTitle}</div>
                 <div className="video_view_time">{(!props.video.statistics) ? null : (`${formatShortString(props.video.statistics?.viewCount!)} views • ${timeAgo.format(new Date(props.video.snippet?.publishedAt!))}`)}</div>
-                {props.isVertical && <div>{props.video.snippet?.description}</div>}
+                {props.isVertical && <div className="video_info_title">{props.video.snippet?.description}</div>}
             </div>
         </div>
 

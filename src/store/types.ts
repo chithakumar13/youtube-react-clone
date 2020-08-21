@@ -1,5 +1,7 @@
 export type VideoResponse = gapi.client.Response<gapi.client.youtube.VideoListResponse>
 
+export type VideoListResponse =gapi.client.youtube.VideoListResponse
+
 export type Video = gapi.client.youtube.Video
 
 export type VideoCategoryResponse = gapi.client.Response<gapi.client.youtube.VideoCategoryListResponse>

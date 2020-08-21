@@ -10,5 +10,6 @@ export enum ActionTypes{
     LoadVideosByCategories,
     VideosLoading,
     SearchVideos,
-    ClearSearchResult
+    ClearSearchResult,
+    GetTrendingVideos
 }
