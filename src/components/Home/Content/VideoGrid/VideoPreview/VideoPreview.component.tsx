@@ -1,25 +1,26 @@
 import React from 'react';
 import { Image } from 'semantic-ui-react';
 import './VideoPreview.css'
-import { Video } from '../../../../../store/types';
+import { Video, params } from '../../../../../store/types';
 import { formatShortString } from '../../../../../utils/number';
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 import { formatTimeString } from '../../../../../utils/timeformat';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 TimeAgo.addLocale(en);
 
 const timeAgo: TimeAgo = new TimeAgo();
 
-interface IVideoPreview {
+interface IVideoPreview extends RouteComponentProps<params> {
     video: Video;
     isVertical?: boolean;
 }
 
-export const VideoPreview = (props: IVideoPreview) => {
+export const VideoPreview = withRouter((props: IVideoPreview) => {
     const infoClass: string = (props.isVertical) ? 'verticalList' : 'video_info';
     return <div className="video_preview">
-        <div className="video_image">
+        <div className="video_image" onClick={() => props.history.push(`/watch?v=${props.video.id}`)}>
             <Image src={props.video.snippet?.thumbnails?.medium?.url} />
             <div className="video_timestamp">
                 <span>{(!props.video.contentDetails) ? null : formatTimeString(props.video.contentDetails?.duration!)}</span>
@@ -35,4 +36,4 @@ export const VideoPreview = (props: IVideoPreview) => {
         </div>
 
     </div>
-}
+})
