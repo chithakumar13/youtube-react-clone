@@ -9,9 +9,12 @@ export const getVideosByCategory = (categoryId: string): Promise<VideoResponse> 
 }
 
 export const getTrendingVideos = (nextPageToken: string | null): Promise<VideoResponse> => {
-    return getVideoByFilter(undefined, 20, nextPageToken);
+    return getVideoByFilter(undefined,undefined, 20, nextPageToken);
 }
 
+export const getVideoById = (videoId : string) => {
+    return getVideoByFilter(undefined, videoId);
+}
 
 export const getVideoCategories = (): Promise<VideoCategoryResponse> => {
     return (gapi.client as any).youtube.videoCategories.list({
@@ -36,7 +39,7 @@ export const searchVideo = (query: string, nextPageToken: string | null, maxResu
     })
 }
 
-const getVideoByFilter = (categoryId: string = "", maxSize: number = 14, nextPageToken: string | null = null): Promise<VideoResponse> => {
+const getVideoByFilter = (categoryId: string = "",videoId : string | undefined = undefined, maxSize: number = 14, nextPageToken: string | null = null): Promise<VideoResponse> => {
 
     return (gapi.client as any).youtube.videos.list({
         "part": [
@@ -44,10 +47,11 @@ const getVideoByFilter = (categoryId: string = "", maxSize: number = 14, nextPag
             "statistics",
             "contentDetails"
         ],
-        "chart": "mostPopular",
+        "chart": (videoId) ? undefined : "mostPopular",
         "regionCode": "IN",
         "maxResults": maxSize,
         "videoCategoryId": categoryId,
-        "pageToken": nextPageToken
+        "pageToken": nextPageToken,
+        "id" : videoId
     })
 }

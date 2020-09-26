@@ -11,5 +11,6 @@ export enum ActionTypes{
     VideosLoading,
     SearchVideos,
     ClearSearchResult,
-    GetTrendingVideos
+    GetTrendingVideos,
+    GetVideoById
 }

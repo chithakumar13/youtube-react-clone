@@ -1,5 +1,5 @@
 import { ActionTypes } from "../interfaces/IAction"
-import { getVideos, getVideoCategories, getVideosByCategory, searchVideo, getTrendingVideos } from "../api/api"
+import { getVideos, getVideoCategories, getVideosByCategory, searchVideo, getTrendingVideos, getVideoById } from "../api/api"
 import { VideoResponse, VideoCategoryResponse, VideoCategory, VideoByCategory, SearchResponse } from "../types"
 
 export const YoutubeClientLoaded = () => {
@@ -26,6 +26,17 @@ export const LoadPopularVideos = () => {
         getVideos().then((data: VideoResponse) => {
             dispatch({
                 type: ActionTypes.LoadPopularVideos,
+                payload: data.result.items
+            })
+        })
+    }
+}
+
+export const GetVideoById = (videoId : string) => {
+    return (dispatch: any) => {
+        getVideoById(videoId).then((data: VideoResponse) => {
+            dispatch({
+                type: ActionTypes.GetVideoById,
                 payload: data.result.items
             })
         })

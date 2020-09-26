@@ -8,4 +8,5 @@ export interface IVideoState {
     videosLoading : boolean;
     searchResults : SearchListResponse;
     trendingVideos : VideoListResponse;
+    video : Video
 }

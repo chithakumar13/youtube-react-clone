@@ -9,7 +9,8 @@ let initialState: IVideoState = {
     videosByCategories: {},
     videosLoading: false,
     searchResults: {},
-    trendingVideos: {}
+    trendingVideos: {},
+    video: {}
 }
 
 export const YoutubeReducer = (currentState: IVideoState = initialState, action: IAction) => {
@@ -58,6 +59,11 @@ export const YoutubeReducer = (currentState: IVideoState = initialState, action:
         let videos: Video[] = (state.trendingVideos.items || []).concat(action.payload.items) || []
         state.trendingVideos = { ...state.trendingVideos, ...action.payload };
         state.trendingVideos.items = [...videos];
+        return state;
+    }
+    else if (action.type === ActionTypes.GetVideoById) {
+        let state = { ...currentState };
+        state.video = action.payload[0];
         return state;
     }
     return currentState;
