@@ -5,3 +5,5 @@ This repository is part of a youtube tutorial series , if you are interested to 
 Both the tutorial series and this repository are currently work in progress, i will add new features upload the video and commit the changes.
  
 Live Demo of the App - https://react-clonealgos.web.app/
+
+<a href="https://discord.gg/qkkW7KFxCV">Join the CK Algos Discord</a> 
